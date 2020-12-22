@@ -1,0 +1,33 @@
+{{ form_start(form) }}
+<div class="row mt-4">
+    <div class="col-6">
+        <div class="my-4">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+        </div>
+        <div class="my-4">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+        </div>
+        <div class="my-4">
+            {{ form_label(form.price) }}
+            {{ form_widget(form.price) }}
+        </div>
+        <div class="my-4">
+            {{ form_label(form.imageFile) }}
+            {{ form_widget(form.imageFile) }}
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="my-2">
+            {{ form_label(form.type) }}
+            {% for ty in form.type.children  %}
+                <div class="form-check">{{ form_row( ty ) }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row justify-content-center my-4">
+        <button class="btn btn-bleu form-control w-25 ">{{ button_label|default('Save') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}

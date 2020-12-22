@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}New Products{% endblock %}
+
+{% block main %}
+    <h1 class="text-center">Ajouter un produits</h1>
+    <div class="w-50 m-auto my-5 bg-white p-5 border rounded shadow">
+        {{ include('products/_form.html.twig') }}
+    </div>
+    <a href="{{ path('products_index') }}">back to list</a>
+{% endblock %}
