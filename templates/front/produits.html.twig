@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{% if type|length > 0 %}{{ type.type.name }}{% endif%} | DeFilsEnTetines{% endblock %}
+
+{% block main %}
+    {% if  products|length == 0 and type|length == 0 %}
+        <h2 class="text-center">Cette rubrique est vide pour le moment</h2>
+    {% else %}
+        <h2 class="text-center">Les {{ type.type.name }}</h2>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                {% for product in products %}
+                    <div class="card mx-xl-5 mx-3 my-4 col-xxl-2 col-xl-3 col-lg-5 col-md-7 col-9   bg-bleu px-0 text-white" >
+                        <img src="{{ asset('images/products/'~product.imageName) }}" class="card-img-top" alt="{{ product.title }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">{{ product.description|u.truncate(170, '...', false) }}</p>
+                            <p class="card-text">{{ product.price }} €</p>
+                            <a href="#" class="btn btn-rose">Consulter l'article</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

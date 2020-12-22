@@ -1,0 +1,114 @@
+
+.bg-bleu{
+    background-color: rgb(19, 20, 46) !important;
+}
+.border-bleu {
+    border-color: rgb(19, 20, 46) !important
+}
+.text-rose {
+    color: #ffc5fb !important;
+}
+.frontmain{
+    background-color: rgba(78, 198, 250, 0.4);
+}
+.btn-bleu{
+    background-color: rgb(19, 20, 46) !important;
+    border-color: rgb(19, 20, 46) !important;
+    color: #ffc5fb!important;
+}
+.btn-rose{
+    background-color: #ffc5fb!important;
+    border-color: rgb(78, 198, 250)!important;
+    color: rgb(19, 20, 46)!important;
+}
+.btn-rose:hover{
+    color: rgb(78, 198, 250)!important;
+}
+.bg-rose,nav .dropdown-menu{
+    background-color: #ffc5fb;
+}
+.navbar-light .navbar-nav .nav-link{
+    color:   rgb(19, 20, 46);
+}
+nav .dropdown-item{
+    color: rgb(78, 198, 250);
+}
+nav .dropdown-item:hover{
+    border: solid 1px #ffc5fb;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    border-color: rgba(0, 0, 0, 0);
+    color: rgb(78, 198, 250);
+}
+.nav-tabs {
+    border-bottom: 1px solid rgb(19, 20, 46);
+}
+nav .dropdown-item:focus, nav .dropdown-item:hover {
+    color: white;
+    background-color: #ffc5fb;
+}
+#header-top .dropdown-toggle::after {
+    display: none;
+}
+#list-products img{
+    width: 200px;
+}
+#td-img{
+    width: 18%;
+}
+footer ul li a{
+    color: #ffc5fb;
+    text-decoration: none;
+}
+header nav{
+    border: solid 2px rgb(19, 20, 46);
+}
+
+#img-footer {
+    display: none;
+}
+#carouselNewProduct {
+    display: none;
+}
+
+
+.carousel-item{
+    height: 700px;
+}
+.height-carousel{
+    height: 100vh;
+}
+.carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.carousel-control-next, .carousel-control-prev{
+    opacity: 1;
+}
+.card:hover
+{
+    transform:scale(1.10);
+}
+
+.block-site{
+
+    min-height: calc(100vh - 420px);
+}
+header{
+    box-sizing: content-box;
+}
+
+
+@media (min-width: 992px)  {
+    #img-footer {
+        display: block;
+    }
+}
+@media (min-width: 768px)  {
+    #carouselNewProduct{
+        display: block;
+    }
+}
+
+
