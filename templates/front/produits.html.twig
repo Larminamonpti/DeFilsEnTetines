@@ -3,6 +3,8 @@
 {% block title %}{% if type|length > 0 %}{{ type.type.name }}{% endif%} | DeFilsEnTetines{% endblock %}
 
 {% block main %}
+
+
     {% if  products|length == 0 and type|length == 0 %}
         <h2 class="text-center">Cette rubrique est vide pour le moment</h2>
     {% else %}
@@ -16,7 +18,8 @@
                             <h5 class="card-title">{{ product.title }}</h5>
                             <p class="card-text">{{ product.description|u.truncate(170, '...', false) }}</p>
                             <p class="card-text">{{ product.price }} €</p>
-                            <a href="#" class="btn btn-rose">Consulter l'article</a>
+                            <a href="{{ path('front_produit', {'id': product.id, 'slug' : type.type.slug}) }}" class="btn btn-rose">Consulter l'article</a>
+                            <a href="{{ path('panier_add') }}">Ajouter au panier</a>
                         </div>
                     </div>
                 {% endfor %}

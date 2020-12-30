@@ -23,11 +23,19 @@ class Products
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *     max=255,
+     *     maxMessage="Vous ne pouvez pas ajouter un titre comprenant plus de {{ limit }} caractères"
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *     max=4294967296,
+     *     maxMessage="Vous ne pouvez pas ajouter une description comprenant plus de {{ limit }} caractères"
+     * )
      */
     private $description;
 
@@ -45,6 +53,7 @@ class Products
      * @Vich\UploadableField(mapping="products", fileNameProperty="imageName")
      * @Assert\Image(
      *     maxSize = "2048k",
+     *     maxSizeMessage="Votre photo est trop volumineuse ({{ size }} {{ suffix }}). La taille maximum authorisée est {{ limit }} {{ suffix }}."
      * )
      */
     private $imageFile;
@@ -107,7 +116,7 @@ class Products
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): self
+    public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
 

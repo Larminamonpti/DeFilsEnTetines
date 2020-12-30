@@ -53,7 +53,8 @@ class ProductsType extends AbstractType
                     'currency' => false,
                     'attr' => [
                         "class" => "form-control"
-                    ]
+                    ],
+                    'invalid_message' => 'Vous devez saisir un chiffre.'
                 ])
             ->add('imageFile' , VichImageType::class, [
                 "required" => true,

@@ -8,6 +8,9 @@
 .text-rose {
     color: #ffc5fb !important;
 }
+.text-bleu {
+    color: rgb(19, 20, 46) !important;
+}
 .frontmain{
     background-color: rgba(78, 198, 250, 0.4);
 }
@@ -31,7 +34,7 @@
     color:   rgb(19, 20, 46);
 }
 nav .dropdown-item{
-    color: rgb(78, 198, 250);
+    color: rgb(19, 20, 46) !important;;
 }
 nav .dropdown-item:hover{
     border: solid 1px #ffc5fb;
@@ -93,16 +96,21 @@ header nav{
 
 .block-site{
 
-    min-height: calc(100vh - 420px);
+    min-height: calc(100vh - 350px);
 }
-header{
-    box-sizing: content-box;
-}
+ #signin{
+     margin-top: 15vh!important;
+     width: 75%;
+ }
+
 
 
 @media (min-width: 992px)  {
     #img-footer {
         display: block;
+    }
+    #signin{
+        width: 25%;
     }
 }
 @media (min-width: 768px)  {

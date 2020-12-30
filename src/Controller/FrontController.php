@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Products;
 use App\Entity\Type;
 
+use App\Repository\CategoryRepository;
 use App\Repository\ProductsRepository;
 
 use App\Repository\TypeRepository;
@@ -15,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FrontController extends AbstractController
 {
     /**
-     * @Route("/", name="front")
+     * @Route("/", name="front_index")
      */
     public function index(ProductsRepository $productsRepository, TypeRepository $typeRepository): Response
     {
@@ -37,6 +39,52 @@ class FrontController extends AbstractController
 
         ]);
     }
+
+    /**
+     * @Route("/produits/{slug}/{id}", name="front_produit", methods={"GET"})
+     */
+    public function produit(Products $product): Response
+    {
+        return $this->render('front/produit.html.twig', [
+            'product' => $product,
+        ]);
+    }
+
+    /**
+     * @route ("/menu", name="front_menu")
+     */
+    public function menu(TypeRepository $typeRepository, CategoryRepository $categoryRepository)
+    {
+        $menu = [];
+        foreach($categoryRepository->findAll() as $categorie) {
+            $menu[$categorie->getName()] = $typeRepository->findBy([
+                'category' => $categorie->getId()
+            ]);
+        }
+
+            return $this->render('menu.html.twig', [
+                'categories' => $menu
+            ]);
+        }
+
+    /**
+     * @route ("/footer", name="front_footer")
+     */
+    public function footer(TypeRepository $typeRepository, CategoryRepository $categoryRepository)
+    {
+        $menu = [];
+        foreach($categoryRepository->findAll() as $categorie) {
+            $menu[$categorie->getName()] = $typeRepository->findBy([
+                'category' => $categorie->getId()
+            ]);
+        }
+
+            return $this->render('footer.html.twig', [
+                'categories' => $menu
+            ]);
+        }
+
+    
 
 
 }

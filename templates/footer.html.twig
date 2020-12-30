@@ -1,0 +1,20 @@
+<footer class="bg-bleu px-0">
+    <div class="d-flex justify-content-between text-rose">
+        <div class="col-md-1 col-none"><img class="img-fluid" id="img-footer" src="{{ asset('images/logo.png') }}" alt="logo defilsentétines"></div>
+        {% for categorie, types in categories %}
+        <div class="d-flex" >
+            <div class="justify-content-center">
+                <p>{{ categorie | capitalize }} : </p>
+                <ul class="list-unstyled">
+                    {% for type in types %}
+                       <li><a href="{{ path('front_produits', {"slug": type.slug}) }}">{{ type.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-2 align-self-end">
+            <p>&copy; DeFilsEnTétines - 2021</p>
+        </div>
+    </div>
+</footer>

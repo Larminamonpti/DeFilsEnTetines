@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -20,6 +21,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(
+     * message = "L'adresse '{{ value }}' n'est pas une adresse valide."
+     * )
+     * @Assert\NotBlank(
+     *     message="Ce champs ne peut pas être vide"
+     * )
      */
     private $email;
 
@@ -31,36 +38,67 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(
+     *     message="Ce champs ne peut pas être vide"
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *     message="Ce champs ne peut pas être vide"
+     * )
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *     message="Ce champs ne peut pas être vide"
+     * )
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(
+     *     message="Ce champs ne peut pas être vide"
+     * )
+     * @Assert\Length(
+     *     max=255,
+     *     maxMessage="Vous ne pouvez pas ajouter une rue comprenant plus de {{ limit }} caractères"
+     * )
      */
     private $street;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *     message="Ce champs ne peut pas être vide"
+     * )
+     * @Assert\Range(
+     *     min = 1000,
+     *     max = 97680,
+     *     notInRangeMessage="Le code postal doit ce situer entre {{ min }} et {{ max }}"
+     * )
      */
     private $postal;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *     message="Ce champs ne peut pas être vide"
+     * )
+     *
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(
+     *     message="Ce champs ne peut pas être vide"
+     * )
      */
     private $country;
 

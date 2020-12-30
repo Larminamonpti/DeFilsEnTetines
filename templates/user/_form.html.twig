@@ -1,6 +1,95 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-<div class="d-flex justify-content-center mt-4">
-    <button class="btn btn-bleu form-control w-25 ">{{ button_label|default('Save') }}</button>
-</div>
+    <div class="row mt-4">
+
+        <h4>Identifiants de connexion</h4>
+        <div>
+            <div class="w-75 float-end">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+                {% if form_errors(form.email) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.email) }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="w-75 float-end">
+                {{ form_row(form.password.first) }}
+                {{ form_row(form.password.second) }}
+                <div class="alert alert-danger">
+                    {{ form_errors(form.password.first) }}
+                </div>
+
+            </div>
+        </div>
+        <h5>Données personelles</h5>
+        <div>
+            <div class="w-75 float-end">
+                {{ form_label(form.firstname) }}
+                {{ form_widget(form.firstname) }}
+                {% if form_errors(form.firstname) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="w-75 float-end">
+                {{ form_label(form.lastname) }}
+                {{ form_widget(form.lastname) }}
+                {% if form_errors(form.lastname) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.lastname) }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="w-75 float-end">
+                {{ form_label(form.street) }}
+                {{ form_widget(form.street) }}
+                {% if form_errors(form.street) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.street) }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="w-75 float-end">
+                {{ form_label(form.postal) }}
+                {{ form_widget(form.postal) }}
+                {% if form_errors(form.postal) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.postal) }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="w-75 float-end">
+                {{ form_label(form.city) }}
+                {{ form_widget(form.city) }}
+                {% if form_errors(form.city) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.city) }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="w-75 float-end">
+                {{ form_label(form.country) }}
+                {{ form_widget(form.country) }}
+                {% if form_errors(form.country) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.country) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="w-75 d-flex justify-content-center border rounded p-2 my-4">
+                {{ form_label(form.roles) }}
+                {% for roles in form.roles.children  %}
+                    <div class="form-check">{{ form_row( roles ) }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-bleu form-control w-25 ">{{ button_label|default('Save') }}</button>
+        </div>
+    </div>
 {{ form_end(form) }}

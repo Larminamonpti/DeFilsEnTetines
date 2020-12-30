@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -27,19 +28,24 @@ class UserType extends AbstractType
             ->add('password' , RepeatedType::class,
                 [
                     'type' => PasswordType::class,
+
+                    'invalid_message' => 'Les deux mots de passe sont differents test.',
                     'first_options' => [
                         "label" => "Votre mot de passe: ",
                         'attr'=>[
                             "class"=>"form-control"
-                        ]],
+                        ],
+                    ],
                     'second_options' => [
                         "label" => "Répétez votre mot de passe",
 
                         'attr'=>[
                             "class"=>"form-control"
-                        ]
+                        ],
                     ]
                 ])
+
+
             ->add('firstname', TextType::class,
                 [
                     'label' => "Votre prenom : ",
@@ -61,11 +67,14 @@ class UserType extends AbstractType
                         "class" => "form-control"
                     ]
                 ])
-            ->add('postal', TextType::class,
+            ->add('postal', NumberType::class,
                 [
+                    'html5' => true,
                     'label' => "Code Postal : ",
                     'attr' => [
-                        "class" => "form-control"
+                        "class" => "form-control",
+                        'min' => 1000,
+                        'max' => 97680
                     ]
                 ])
             ->add('city', TextType::class,
@@ -92,10 +101,12 @@ class UserType extends AbstractType
                     ],
                     "multiple" => true,
                     "expanded" => true,
-                    "label" => "Droits de l'utiliasteur",
+                    "label" => "Droits de l'utilisateur : ",
                     'attr'=>[
                         "class"=>"form-control"
-                    ]
+                    ],
+                    "choice_attr"=>function(){
+                        return ["class"=>"form-check-input mx-1"];}
                 ]);}
     }
 
@@ -103,7 +114,8 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'isAdmin' => false
+            'isAdmin' => false,
+
         ]);
     }
 }
