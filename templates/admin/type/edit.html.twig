@@ -1,13 +1,15 @@
-{% extends 'layout.html.twig' %}
+{% extends 'admin.layout.html.twig' %}
 
 {% block title %}Edit Type{% endblock %}
 
 {% block main %}
-    <h1>Edit Type</h1>
+    <div class="formulaire">
+        <h1>Edit Type</h1>
 
-    {{ include('type/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('admin/type/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('type_index') }}">back to list</a>
+        <a href="{{ path('type_index') }}">back to list</a>
 
-    {{ include('type/_delete_form.html.twig') }}
+        {{ include('admin/type/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

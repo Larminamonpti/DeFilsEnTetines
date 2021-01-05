@@ -1,0 +1,12 @@
+{% extends "layout.html.twig" %}
+{% block menu %}{% endblock %}
+{% block menu2 %}
+    <nav class="bg-rose py-2" id="navadmin">
+        <ul class="d-flex justify-content-around list-unstyled py-2 mb-0 nav text-bleu">
+            <li><a href="{{path('admin_index')}}">ACCUEIL</a></li>
+            <li><a href="{{path('products_index')}}">PRODUITS</a></li>
+            <li><a href="{{path('type_index')}}">TYPES</a></li>
+            <li><a href="{{path('category_index')}}">CATÉGORIES</a></li>
+        </ul>
+    </nav>
+{% endblock %}

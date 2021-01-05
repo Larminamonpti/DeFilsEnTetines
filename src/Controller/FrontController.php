@@ -83,8 +83,4 @@ class FrontController extends AbstractController
                 'categories' => $menu
             ]);
         }
-
-    
-
-
 }

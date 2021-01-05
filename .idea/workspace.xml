@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5978ab90-707e-45e9-9d0e-b1a82ae8adff" name="Default Changelist" comment="test">
+      <change afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/$product" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/createView()" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/findAll()" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flush()" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/getManager()" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/handleRequest($request)" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persist($product)" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redirectToRoute('products_index')" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/remove($product)" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CategoryController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/category/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/category/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/category/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/category/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/category/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/front/produits.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/produits.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/menu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/products/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/type/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/type/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/type/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/type/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/type/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/type/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/type/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/type/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/type/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/type/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/type/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/_form.html.twig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/notifier" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/twig/string-extra" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1m0wMJyCtRI0lVE6BZdfvJRTHQp" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\symfony\DeFilsEnTetines\templates\admin" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5978ab90-707e-45e9-9d0e-b1a82ae8adff" name="Default Changelist" comment="" />
+      <created>1608643766440</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608643766440</updated>
+      <workItem from="1608643767754" duration="14985000" />
+      <workItem from="1608712612532" duration="9000" />
+      <workItem from="1608712853190" duration="1188000" />
+      <workItem from="1608802041803" duration="8000" />
+      <workItem from="1608813742740" duration="626000" />
+      <workItem from="1608927875554" duration="221000" />
+      <workItem from="1608933420248" duration="633000" />
+      <workItem from="1609005062273" duration="5288000" />
+      <workItem from="1609074000165" duration="1633000" />
+      <workItem from="1609142931538" duration="27380000" />
+      <workItem from="1609186544053" duration="7000" />
+      <workItem from="1609191741830" duration="175000" />
+      <workItem from="1609230211571" duration="17016000" />
+      <workItem from="1609316069877" duration="26983000" />
+      <workItem from="1609406694916" duration="11765000" />
+      <workItem from="1609706341249" duration="8000" />
+      <workItem from="1609748866923" duration="1815000" />
+      <workItem from="1609752274712" duration="2000" />
+    </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1608663299635</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608663299635</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test">
+      <created>1608663702959</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608663702959</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test">
+      <created>1608665130935</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608665130935</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test">
+      <created>1609317424503</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609317424503</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
+  </component>
+</project>

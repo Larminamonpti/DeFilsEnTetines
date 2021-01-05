@@ -1,13 +1,15 @@
-{% extends 'layout.html.twig' %}
+{% extends 'admin.layout.html.twig' %}
 
 {% block title %}Edit Products{% endblock %}
 
 {% block main %}
-    <h1 class="text-center text-bleu">Modifier</h1>
+    <div class="formulaire">
+        <h1 class="text-center text-bleu">Modifier</h1>
 
-    {{ include('products/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('admin/products/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a class="btn-bleu" href="{{ path('products_index') }}">Retour à la liste</a>
+        <a class="btn-bleu" href="{{ path('products_index') }}">Retour à la liste</a>
 
-    {{ include('products/_delete_form.html.twig') }}
+        {{ include('admin/products/_delete_form.html.twig') }}
+</div>
 {% endblock %}

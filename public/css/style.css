@@ -1,4 +1,49 @@
-
+body{
+    font-size: 30px;
+}
+.btn{
+    font-size: 2rem!important;
+}
+#header-top{
+    height: 150px;
+}
+.formulaire{
+    width: 90%;
+    border: 1px solid #dee2e6!important;
+    border-radius: 0.25rem!important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15)!important;
+    background-color: white;
+    margin: 1.25rem auto;
+    padding: 3rem!important;
+}
+#header-top .dropdown-item {
+    font-size: 30px;
+}
+.navbar-toggler-icon{
+    height: 60px;
+    width: 70px;
+}
+h5{
+    font-size: 2.25rem;
+}
+.alert-rose{
+    color: #13142e;
+    background-color: #ffdafc;
+    border-color: #ffc5fb;
+}
+.nav-2{
+    border-left: 2px solid  #13142e;
+    border-right: 2px solid  #13142e;
+    border-bottom: 2px solid  #13142e;
+}
+#navadmin a{
+    color: #13142e;
+    text-decoration: none;
+}
+#navadmin a:hover{
+    color:rgb(78, 198, 250);
+    
+}
 .bg-bleu{
     background-color: rgb(19, 20, 46) !important;
 }
@@ -27,14 +72,15 @@
 .btn-rose:hover{
     color: rgb(78, 198, 250)!important;
 }
-.bg-rose,nav .dropdown-menu{
+.bg-rose,nav .dropdown-menu {
     background-color: #ffc5fb;
 }
 .navbar-light .navbar-nav .nav-link{
     color:   rgb(19, 20, 46);
 }
 nav .dropdown-item{
-    color: rgb(19, 20, 46) !important;;
+    color: rgb(19, 20, 46) !important;
+    font-size: 30px;
 }
 nav .dropdown-item:hover{
     border: solid 1px #ffc5fb;
@@ -66,15 +112,12 @@ footer ul li a{
 header nav{
     border: solid 2px rgb(19, 20, 46);
 }
-
 #img-footer {
     display: none;
 }
 #carouselNewProduct {
-    display: none;
+    display: none!important;
 }
-
-
 .carousel-item{
     height: 700px;
 }
@@ -93,18 +136,17 @@ header nav{
 {
     transform:scale(1.10);
 }
-
 .block-site{
-
     min-height: calc(100vh - 350px);
 }
- #signin{
-     margin-top: 15vh!important;
-     width: 75%;
- }
-
-
-
+#signin{
+    margin-top: 15vh!important;
+    width: 75%;
+}
+.not-on-phone
+{
+    display: none;
+}
 @media (min-width: 992px)  {
     #img-footer {
         display: block;
@@ -112,11 +154,28 @@ header nav{
     #signin{
         width: 25%;
     }
-}
-@media (min-width: 768px)  {
     #carouselNewProduct{
-        display: block;
+        display: block!important;
+    }
+    body, nav .dropdown-item, #header-top .dropdown-item {
+            font-size: 1rem;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+    .btn{
+        font-size: 1rem!important;
+    }
+    .formulaire{
+        width: 50%;
+    }
+    #list{
+        width: 75%;
+    }
+
+}
+@media (min-width: 1200px)  {
+    .not-on-phone{
+        display: table-cell;
     }
 }
-
-

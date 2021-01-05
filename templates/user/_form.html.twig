@@ -13,13 +13,17 @@
                 {% endif %}
             </div>
             <div class="w-75 float-end">
+                <div class="test">
                 {{ form_row(form.password.first) }}
-                {{ form_row(form.password.second) }}
-                <div class="alert alert-danger">
-                    {{ form_errors(form.password.first) }}
+                {% if form_errors(form.password.first) %}
+                    <div class="alert alert-danger">
+                        {{ form_errors(form.password.first) }}
+                    </div>
+                {% endif %}
                 </div>
+                {{ form_row(form.password.second) }}
 
-            </div>
+             </div>
         </div>
         <h5>Données personelles</h5>
         <div>

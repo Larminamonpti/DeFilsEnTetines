@@ -1,11 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.layout.html.twig' %}
 
 {% block title %}New Category{% endblock %}
 
-{% block body %}
-    <h1>Create new Category</h1>
+{% block main %}
+<div class="formulaire">
+    <h1 class="text-center">Create new Category</h1>
 
-    {{ include('category/_form.html.twig') }}
+    {{ include('admin/category/_form.html.twig') }}
 
     <a href="{{ path('category_index') }}">back to list</a>
+</div>
 {% endblock %}

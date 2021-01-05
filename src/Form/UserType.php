@@ -28,8 +28,6 @@ class UserType extends AbstractType
             ->add('password' , RepeatedType::class,
                 [
                     'type' => PasswordType::class,
-
-                    'invalid_message' => 'Les deux mots de passe sont differents test.',
                     'first_options' => [
                         "label" => "Votre mot de passe: ",
                         'attr'=>[
@@ -42,7 +40,10 @@ class UserType extends AbstractType
                         'attr'=>[
                             "class"=>"form-control"
                         ],
-                    ]
+                    ],
+                    'invalid_message' => 'Les deux mots de passe sont differents',
+
+
                 ])
 
 
@@ -115,6 +116,7 @@ class UserType extends AbstractType
         $resolver->setDefaults([
             'data_class' => User::class,
             'isAdmin' => false,
+
 
         ]);
     }
