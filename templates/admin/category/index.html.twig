@@ -4,34 +4,33 @@
 
 {% block main %}
 <div class="formulaire">
-    <h1>Category index</h1>
+    <h1 class="text-center">Liste des catégories</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
-                <td>
-                    <a href="{{ path('category_edit', {'id': category.id}) }}">Modifier</a>
+                <td class="d-flex justify-content-center">
+                    <a class="btn btn-bleu mx-2" href="{{ path('category_edit', {'id': category.id}) }}">Modifier</a>
                     {{ include('admin/category/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Pas de catégories trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('category_new') }}">Create new</a>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-bleu m-auto" href="{{ path('category_new') }}">Ajouter</a>
+    </div>
 </div>
 {% endblock %}

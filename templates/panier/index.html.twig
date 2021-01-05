@@ -27,11 +27,13 @@
                             <td>{{ item.product.title }}</td>
                             <td>{{ item.product.price }}€</td>
                             <td>{{ item.quantity }}</td>
-                            <td>{{ item.quantity * item.product.price }}</td>
-                            <td>
+                            <td>{{ item.quantity * item.product.price }}€</td>
+                            <td class="text-center">
+                                <a href="{{ path('panier_removeOne', {'id': item.product.id}) }}" class="btn btn-bleu">-</a>
                                 <a href="{{ path('panier_remove', {'id': item.product.id}) }}" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash"></i>
                                 </a>
+                                <a href="{{ path('panier_addOne', {'id': item.product.id}) }}" class="btn btn-bleu">+</a>
                             </td>
                         </tr>
                     {% endfor %}
