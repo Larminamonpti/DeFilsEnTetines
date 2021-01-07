@@ -7,11 +7,13 @@ use App\Entity\Products;
 use App\Entity\Type;
 
 use App\Repository\CategoryRepository;
+use App\Repository\PanierRepository;
 use App\Repository\ProductsRepository;
 
 use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class FrontController extends AbstractController
@@ -19,8 +21,16 @@ class FrontController extends AbstractController
     /**
      * @Route("/", name="front_index")
      */
-    public function index(ProductsRepository $productsRepository, TypeRepository $typeRepository): Response
+    public function index(ProductsRepository $productsRepository, TypeRepository $typeRepository, PanierRepository $panierRepository, SessionInterface $session): Response
     {
+        if(!empty($this->getUser()))
+        {
+        $userPanier = $panierRepository->findBy(['user' => $this->getUser()])[0]->getPanier();
+        }
+        $panier = $session->get('panier', []);
+        if(!empty($userPanier) && (empty($panier))){
+            $session->set('panier', $userPanier);
+        }
         return $this->render('front/index.html.twig', [
             'products' => $productsRepository->findFive(),
 
@@ -84,3 +94,5 @@ class FrontController extends AbstractController
             ]);
         }
 }
+
+

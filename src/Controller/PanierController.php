@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Panier;
+use App\Repository\PanierRepository;
 use App\Repository\ProductsRepository;
 use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,8 +19,9 @@ class PanierController extends AbstractController
      */
     public function index(SessionInterface $session, ProductsRepository $productsRepository): Response
     {
-
+        
         $panier = $session->get('panier', []);
+
         $panierPlein = [];
         foreach($panier as $id => $quantity){
             $panierPlein[] = [
@@ -35,7 +37,8 @@ class PanierController extends AbstractController
 
         return $this->render('panier/index.html.twig', [
             'panier' => $panierPlein,
-            'total' => $total
+            'total' => $total,
+            'paniers' => $panier
         ]);
     }
 
@@ -101,8 +104,32 @@ class PanierController extends AbstractController
     }
 
     /**
-     * @Route("/panier/save", name"=)
+     * @Route("/panier/save", name="panier_save")
      */
+    public function save(SessionInterface $session, PanierRepository $panierRepository){
+
+
+        $paniers = $panierRepository->findBy(['user' => $this->getUser()])[0];
+        $panier = $paniers->getPanier();
+        if(!empty($panier))
+        {
+            $pannierSession = $session->get('panier', []);
+            $entityManager = $this->getDoctrine()->getManager();
+            $paniers->setPanier($pannierSession);
+            $entityManager->flush();
+        }else{
+        $panier = $session->get('panier', []);
+        $pan = new Panier();
+        $pan->setPanier($panier);
+        $pan->setUser($this->getUser());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($pan);
+        $em->flush();
+        }
+        return $this->redirectToRoute('panier_index');
+
+    }
 }
 
 

@@ -5,7 +5,7 @@
 {% block main %}
 
     {% for key, messages in app.flashes %}
-        <div role="alert" class="alert alert-{{ key }}">
+        <div role="alert" class="alert alert-{{ key }} my-2">
             {% for message in messages %}
                 {{ message }}
             {% endfor %}
@@ -22,7 +22,7 @@
                     <div class="card mx-xl-5 mx-3 my-4 col-xxl-2 col-xl-4 col-lg-5 col-md-9   bg-bleu px-0 text-white" >
                         <img src="{{ asset('images/products/'~product.imageName) }}" class="card-img-top" alt="{{ product.title }}">
                         <div class="card-body text-center">
-                            <h5 class="card-title">{{ product.title }}</h5>
+                            <h5 class="card-title">{{ product.title|capitalize }}</h5>
                             <p class="card-text">{{ product.description|u.truncate(170, '...', false) }}</p>
                             <p class="card-text">Prix : {{ product.price }}€</p>
                             <a href="{{ path('panier_add', {'id': product.id}) }}" class="btn btn-rose">Ajouter au panier</a>
