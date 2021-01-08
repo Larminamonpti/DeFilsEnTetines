@@ -13,20 +13,17 @@
                 {% endif %}
             </div>
             <div class="w-75 float-end">
-                <div class="test">
-                {{ form_row(form.password.first) }}
+                {{ form_label(form.password.first)}}
+                {{ form_widget(form.password.first) }}
+                {{ form_label(form.password.second)}}
+                {{ form_widget(form.password.second) }}
                 {% if form_errors(form.password.first) %}
                     <div class="alert alert-danger">
                         {{ form_errors(form.password.first) }}
                     </div>
                 {% endif %}
-                </div>
-                {{ form_row(form.password.second) }}
-
-             </div>
-        </div>
-        <h5>Données personelles</h5>
-        <div>
+            </div>
+        
             <div class="w-75 float-end">
                 {{ form_label(form.firstname) }}
                 {{ form_widget(form.firstname) }}
@@ -42,42 +39,6 @@
                 {% if form_errors(form.lastname) %}
                     <div class="alert alert-danger">
                         {{ form_errors(form.lastname) }}
-                    </div>
-                {% endif %}
-            </div>
-            <div class="w-75 float-end">
-                {{ form_label(form.street) }}
-                {{ form_widget(form.street) }}
-                {% if form_errors(form.street) %}
-                    <div class="alert alert-danger">
-                        {{ form_errors(form.street) }}
-                    </div>
-                {% endif %}
-            </div>
-            <div class="w-75 float-end">
-                {{ form_label(form.postal) }}
-                {{ form_widget(form.postal) }}
-                {% if form_errors(form.postal) %}
-                    <div class="alert alert-danger">
-                        {{ form_errors(form.postal) }}
-                    </div>
-                {% endif %}
-            </div>
-            <div class="w-75 float-end">
-                {{ form_label(form.city) }}
-                {{ form_widget(form.city) }}
-                {% if form_errors(form.city) %}
-                    <div class="alert alert-danger">
-                        {{ form_errors(form.city) }}
-                    </div>
-                {% endif %}
-            </div>
-            <div class="w-75 float-end">
-                {{ form_label(form.country) }}
-                {{ form_widget(form.country) }}
-                {% if form_errors(form.country) %}
-                    <div class="alert alert-danger">
-                        {{ form_errors(form.country) }}
                     </div>
                 {% endif %}
             </div>

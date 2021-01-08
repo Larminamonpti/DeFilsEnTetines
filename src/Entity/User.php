@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -61,46 +63,20 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank(
-     *     message="Ce champs ne peut pas être vide"
-     * )
-     * @Assert\Length(
-     *     max=255,
-     *     maxMessage="Vous ne pouvez pas ajouter une rue comprenant plus de {{ limit }} caractères"
-     * )
+     * @ORM\OneToMany(targetEntity=Adress::class, mappedBy="user")
      */
-    private $street;
+    private $adress;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(
-     *     message="Ce champs ne peut pas être vide"
-     * )
-     * @Assert\Range(
-     *     min = 1000,
-     *     max = 97680,
-     *     notInRangeMessage="Le code postal doit ce situer entre {{ min }} et {{ max }}"
-     * )
-     */
-    private $postal;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(
-     *     message="Ce champs ne peut pas être vide"
-     * )
-     *
-     */
-    private $city;
+    public function __construct()
+    {
+        $this->adress = new ArrayCollection();
+    }
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(
-     *     message="Ce champs ne peut pas être vide"
-     * )
-     */
-    private $country;
+    public function __toString()
+    {
+        return $this->getFirstname();
+    }
 
     public function getId(): ?int
     {
@@ -204,51 +180,34 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getStreet(): ?string
+    /**
+     * @return Collection|Adress[]
+     */
+    public function getAdress(): Collection
     {
-        return $this->street;
+        return $this->adress;
     }
 
-    public function setStreet(string $street): self
+    public function addAdress(Adress $adress): self
     {
-        $this->street = $street;
+        if (!$this->adress->contains($adress)) {
+            $this->adress[] = $adress;
+            $adress->setUser($this);
+        }
 
         return $this;
     }
 
-    public function getPostal(): ?string
+    public function removeAdress(Adress $adress): self
     {
-        return $this->postal;
-    }
-
-    public function setPostal(string $postal): self
-    {
-        $this->postal = $postal;
+        if ($this->adress->removeElement($adress)) {
+            // set the owning side to null (unless already changed)
+            if ($adress->getUser() === $this) {
+                $adress->setUser(null);
+            }
+        }
 
         return $this;
     }
 
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    public function setCountry(string $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
 }

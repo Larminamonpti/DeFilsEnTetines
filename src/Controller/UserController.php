@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Adress;
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\AdressType;
+use App\Repository\AdressRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,11 +64,12 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, AdressRepository $adressRepository): Response
     {
+        $adresses = $adressRepository->findby(['user' => $user->getId()]);
+
         $form = $this->createForm(UserType::class, $user, ["isAdmin" => $this->isGranted("ROLE_ADMIN")]);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
@@ -75,6 +79,8 @@ class UserController extends AbstractController
         return $this->render('user/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
+            'adresses' => $adresses,
+            
         ]);
     }
 

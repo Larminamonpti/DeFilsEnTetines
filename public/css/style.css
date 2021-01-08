@@ -147,6 +147,19 @@ header nav{
 {
     display: none;
 }
+.adress{
+    text-decoration: none;
+    color: black;
+    background: #7d8c9454;
+    border-radius: .25rem!;
+    padding: 1rem;
+    margin: .25rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+
+
 @media (min-width: 992px)  {
     #img-footer {
         display: block;
