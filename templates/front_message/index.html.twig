@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FrontMessage index{% endblock %}
+
+{% block body %}
+    <h1>FrontMessage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for front_message in front_messages %}
+            <tr>
+                <td>{{ front_message.id }}</td>
+                <td>{{ front_message.title }}</td>
+                <td>{{ front_message.content }}</td>
+                <td>
+                    <a href="{{ path('front_message_show', {'id': front_message.id}) }}">show</a>
+                    <a href="{{ path('front_message_edit', {'id': front_message.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('front_message_new') }}">Create new</a>
+{% endblock %}

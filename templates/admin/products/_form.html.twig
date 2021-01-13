@@ -1,3 +1,5 @@
+
+
 {{ form_start(form) }}
 <div class="row mt-4">
     <div class="col-6">
@@ -29,13 +31,9 @@
             {% endif %}
         </div>
         <div class="my-4">
-            {{ form_label(form.imageFile) }}
-            {{ form_widget(form.imageFile) }}
-            {% if form_errors(form.imageFile) %}
-                <div class="alert alert-danger">
-                    {{ form_errors(form.imageFile) }}
-                </div>
-            {% endif %}
+            {% for image in form.images %}
+                {{form_row(image)}}
+            {% endfor %}
         </div>
     </div>
     <div class="col-6">

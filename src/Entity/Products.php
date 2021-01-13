@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -44,31 +46,22 @@ class Products
      */
     private $price;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $imageName;
-
-    /**
-     * @Vich\UploadableField(mapping="products", fileNameProperty="imageName")
-     * @Assert\Image(
-     *     maxSize = "2048k",
-     *     maxSizeMessage="Votre photo est trop volumineuse ({{ size }} {{ suffix }}). La taille maximum authorisée est {{ limit }} {{ suffix }}."
-     * )
-     */
-    private $imageFile;
-
-    /**
-     * @ORM\Column(type="datetime", nullable= true)
-     */
-    private $updatedAt;
-
 
     /**
      * @ORM\ManyToOne(targetEntity=Type::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
     private $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="products", cascade={"persist"})
+     */
+    private $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -111,18 +104,6 @@ class Products
         return $this;
     }
 
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
-
-    public function setImageName(?string $imageName): self
-    {
-        $this->imageName = $imageName;
-
-        return $this;
-    }
-
     public function getType(): ?Type
     {
         return $this->type;
@@ -135,28 +116,32 @@ class Products
         return $this;
     }
 
-    public function getImageFile(): ?File
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
     {
-        return $this->imageFile;
+        return $this->images;
     }
 
-    public function setImageFile(?File $file): self
+    public function addImage(Images $image): self
     {
-        $this->imageFile = $file;
-        if ($file != null) {
-            $this->updatedAt = new \DateTimeImmutable();
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setProducts($this);
         }
+
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function removeImage(Images $image): self
     {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getProducts() === $this) {
+                $image->setProducts(null);
+            }
+        }
 
         return $this;
     }

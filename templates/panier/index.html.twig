@@ -25,7 +25,7 @@
                 <tbody>
                     {% for item in panier %}
                         <tr>
-                            <td>{{ item.product.title }}</td>
+                            <td>{{ item.product.title|capitalize }}</td>
                             <td>{{ item.product.price }}€</td>
                             <td>{{ item.quantity }}</td>
                             <td>{{ item.quantity * item.product.price }}€</td>
@@ -51,7 +51,6 @@
                 <a href="#" class="btn btn-bleu">Commander</a>
             </div>
         </div>
-        {{dump(paniers)}}
     </div>
     {% endif %}
 

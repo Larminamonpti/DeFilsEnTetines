@@ -3,14 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Images;
 use App\Entity\Products;
 use App\Entity\Type;
 use App\Form\CategoryType;
 use App\Form\ProductsType;
 use App\Form\TypeType;
 use App\Repository\CategoryRepository;
+use App\Repository\ImagesRepository;
 use App\Repository\ProductsRepository;
 use App\Repository\TypeRepository;
+use App\Service\ProductTable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,10 +35,11 @@ class AdminController extends AbstractController
     /**
      * @Route("/products/", name="products_index", methods={"GET"})
      */
-    public function productsIndex(ProductsRepository $productsRepository): Response
+    public function productsIndex(ProductsRepository $productsRepository, ImagesRepository $imagesRepository, ProductTable $productTable): Response
     {
+    
         return $this->render('admin/products/index.html.twig', [
-            'products' => $productsRepository->findAll(),
+            'products' => $productTable->getTableAll($productsRepository, $imagesRepository)
         ]);
     }
 
@@ -45,6 +49,8 @@ class AdminController extends AbstractController
     public function productsNew(Request $request): Response
     {
         $product = new Products();
+        $images = new Images();
+        $product->addImage($images);
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
 
@@ -64,7 +70,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/products/{id}/edit", name="products_edit", methods={"GET","POST"})
      */
-    public function productsEdit(Request $request, Products $product): Response
+    public function productsEdit(Request $request, Products $product, ImagesRepository $imagesRepository): Response
     {
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);

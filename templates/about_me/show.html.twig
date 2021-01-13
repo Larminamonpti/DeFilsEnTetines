@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AboutMe{% endblock %}
+
+{% block body %}
+    <h1>AboutMe</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ about_me.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ about_me.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ about_me.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('about_me_index') }}">back to list</a>
+
+    <a href="{{ path('about_me_edit', {'id': about_me.id}) }}">edit</a>
+
+    {{ include('about_me/_delete_form.html.twig') }}
+{% endblock %}

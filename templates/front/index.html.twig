@@ -3,13 +3,16 @@
 
 {% block main %}
 
-    <div class="container-fluid my-3">
-        <div class="container">
+    <div class="container-fluid">
+        <div class="container my-3">
+            
+        </div>
+        <div class="container my-3">
             <h2 class="text-center">Les nouveautés</h2>
             <div id="carouselNewProduct" class="carousel slide" data-bs-ride="carousel">
                 <ol class="carousel-indicators">
                     {% set i =0 %}
-                    {% for i in 0..4  %}
+                    {% for i in 0..(images|length - 1)  %}
                         {% if i==0 %}
                             <li data-bs-target="#carouselNewProduct" data-bs-slide-to="{{ i }}" class="active"></li>
                         {% else %}
@@ -19,7 +22,7 @@
                 </ol>
                 <div class="carousel-inner">
                     {% set i = 0 %}
-                    {% for product in products %}
+                    {% for image in images %}
 
 
                         {% if i == 0 %}
@@ -28,7 +31,7 @@
                             {% set active ='' %}
                         {% endif %}
                         <div class="carousel-item {{ active }}">
-                            <img src="{{ asset('images/products/'~product.imageName) }}" class="d-block height-carousel m-auto" alt="{{ product.title }}">
+                            <img src="{{ asset('images/products/'~image.name) }}" class="d-block height-carousel m-auto" alt="{{ image.products.title }}">
                         </div>
                         {% set i = i+1 %}
                     {% endfor %}
@@ -42,6 +45,16 @@
                     <span class="visually-hidden">Next</span>
                 </a>
             </div>
+        </div>
+        <div id="about_me"class="container bg-white08 my-3">
+            {{dump(me)}}
+            {% for m in me %}
+                <h2>{{m.title}}</h2>
+                <div>
+                    <img class="float-start" src="{{ asset('images/products/'~ m.images.name)| imagine_filter('about_me') }}" alt="{{m.images.name}}">
+                    <p>{{m.content}}</p>
+                </div>
+            {% endfor %}
         </div>
     </div>
 

@@ -11,6 +11,7 @@
             {% endfor %}
         </div>
     {% endfor %}
+    
 
     {% if  products|length == 0 and type|length == 0 %}
         <h2 class="text-center">Cette rubrique est vide pour le moment</h2>
@@ -20,7 +21,7 @@
             <div class="row justify-content-center">
                 {% for product in products %}
                     <div class="card mx-xl-5 mx-3 my-4 col-xxl-2 col-xl-4 col-lg-5 col-md-9   bg-bleu px-0 text-white" >
-                        <img src="{{ asset('images/products/'~product.imageName) }}" class="card-img-top" alt="{{ product.title }}">
+                        <img src="{{ asset('images/products/'~product.image.name) }}" class="card-img-top" alt="{{ product.title }}">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ product.title|capitalize }}</h5>
                             <p class="card-text">{{ product.description|u.truncate(170, '...', false) }}</p>

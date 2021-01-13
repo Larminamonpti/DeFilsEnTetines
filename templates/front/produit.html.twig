@@ -18,12 +18,17 @@
         </tr>
         <tr>
             <th>Prix</th>
-            <td>{{ product.price }}</td>
+            <td>{{ product.price }}€</td>
         </tr>
         <tr>
-            <th>ImageName</th>
-            <td>{{ product.imageName }}</td>
+            <th>Images</th>
+            <td>
+                {% for image in product.images %}
+                    <img class="img-fluid" src="{{ asset('images/products/'~ image) }}" alt="">
+                {% endfor %}
+            </td>
         </tr>
+
         </tbody>
     </table>
 

@@ -47,13 +47,5 @@ class ProductsRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function findFive()
-    {
-        return $this->createQueryBuilder('p')
-            ->orderBy('p.id', 'DESC')
-            ->setMaxResults(5)
-            ->getQuery()
-            ->getResult()
-            ;
-    }
+    
 }

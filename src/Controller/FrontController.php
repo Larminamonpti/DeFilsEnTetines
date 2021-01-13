@@ -5,12 +5,14 @@ namespace App\Controller;
 
 use App\Entity\Products;
 use App\Entity\Type;
-
+use App\Repository\AboutMeRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\ImagesRepository;
 use App\Repository\PanierRepository;
 use App\Repository\ProductsRepository;
 
 use App\Repository\TypeRepository;
+use App\Service\ProductTable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -21,7 +23,7 @@ class FrontController extends AbstractController
     /**
      * @Route("/", name="front_index")
      */
-    public function index(ProductsRepository $productsRepository, TypeRepository $typeRepository, PanierRepository $panierRepository, SessionInterface $session): Response
+    public function index(AboutMeRepository $aboutMeRepository, ImagesRepository $imagesRepository, PanierRepository $panierRepository, SessionInterface $session): Response
     {
         if(!empty($this->getUser()))
         {
@@ -32,20 +34,21 @@ class FrontController extends AbstractController
             $session->set('panier', $userPanier);
         }
         return $this->render('front/index.html.twig', [
-            'products' => $productsRepository->findFive(),
+            'images' => $imagesRepository->findFive(),
+            'me' => $aboutMeRepository->findBy(['id' => 1])
 
-            'types' => $typeRepository->findAll()
         ]);
     }
 
     /**
      * @Route ("/produits/{slug}", name="front_produits")
      */
-    public function produits(Type $type , ProductsRepository $productsRepository)
+    public function produits(Type $type, ProductsRepository $productsRepository, ImagesRepository $imagesRepository, ProductTable $productTable, $slug)
     {
         return $this->render('front/produits.html.twig', [
-            'products' => $productsRepository->findBy(['type' => $type->getId()]),
+            'products' => $productTable->getTableBy($productsRepository, $imagesRepository, $type),
             'type' => $productsRepository->findOneBy(['type' => $type->getId()]),
+            
 
         ]);
     }

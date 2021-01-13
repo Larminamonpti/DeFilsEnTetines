@@ -17,6 +17,7 @@
 {% endblock %}
 
 {% block main %}
+{{dump(products)}}
 <div class="formulaire" id="list">
     <h1 class="my-2">Liste des Classeurs</h1>
     <a class="btn bg-bleu text-rose border-bleu my-2" href="{{ path('products_new') }}">Ajouter un produit</a>
@@ -41,7 +42,11 @@
                     <td>{{product.description|u.truncate(60, '...', false)}}</td>
                     <td class="not-on-phone">{{product.price}}</td>
                     <td class="not-on-phone">{{product.type.name}}</td>
-                    <td class="not-on-phone" id="td-img"><img src="{{ asset('images/products/'~product.imageName) }}" alt="{{ product.title }}"></td>
+                    <td class="not-on-phone" id="td-img">
+                        {% if product.image|length > 0 %}
+                            <img src="{{ asset('images/products/'~product.image.name) }}" alt="{{ product.title }}">
+                            {% endif %}
+                        </td>
                     <td>
                         <div class="d-flex">
                             <a class="btn text-rose bg-bleu border-bleu mx-2 " href="{{ path('products_edit', {'id': product.id}) }}">Modifier</a>

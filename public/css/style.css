@@ -1,11 +1,26 @@
 body{
-    font-size: 30px;
+    font-size: 43px;
 }
 .btn{
     font-size: 2rem!important;
 }
 #header-top{
-    height: 150px;
+    height: 350px;
+}
+#about_me p{
+    font-size: 20px;
+}
+.bg-white08{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.not-phone{
+    display: none!important;
+}
+#logo{
+    margin: auto;
+}
+nav a, footer a{
+    margin: 30px 0;
 }
 .formulaire{
     width: 90%;
@@ -20,11 +35,11 @@ body{
     font-size: 30px;
 }
 .navbar-toggler-icon{
-    height: 60px;
-    width: 70px;
+    height: 90px;
+    width: 105px;
 }
 h5{
-    font-size: 2.25rem;
+    font-size: 3.3rem;
 }
 .alert-rose{
     color: #13142e;
@@ -80,7 +95,7 @@ h5{
 }
 nav .dropdown-item{
     color: rgb(19, 20, 46) !important;
-    font-size: 30px;
+    font-size: 50px;
 }
 nav .dropdown-item:hover{
     border: solid 1px #ffc5fb;
@@ -157,6 +172,9 @@ header nav{
     border: 1px solid #dee2e6;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
+.on-phone{
+    display: block;
+}
 
 
 
@@ -185,6 +203,25 @@ header nav{
     #list{
         width: 75%;
     }
+    .not-phone{
+        display: flex!important;
+    }
+    #header-top{
+        height: 150px;
+    }
+    #logo{
+        margin: inherit;
+    }
+    .on-phone{
+        display: none;
+    }
+    nav a{
+        margin: 0px;
+    }
+    h5{
+        font-size: 1.3rem;
+    }
+    
 
 }
 @media (min-width: 1200px)  {
