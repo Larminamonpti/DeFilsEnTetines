@@ -6,15 +6,24 @@ use App\Entity\Category;
 use App\Entity\Images;
 use App\Entity\Products;
 use App\Entity\Type;
+use App\Entity\AboutMe;
+use App\Entity\FrontMessage;
+use App\Entity\Commande;
 use App\Form\CategoryType;
 use App\Form\ProductsType;
 use App\Form\TypeType;
+use App\Form\AboutMeType;
+use App\Form\ImagesType;
+use App\Form\FrontMessageType;
 use App\Repository\CategoryRepository;
+use App\Repository\CommandeRepository;
 use App\Repository\ImagesRepository;
 use App\Repository\ProductsRepository;
 use App\Repository\TypeRepository;
 use App\Service\ProductTable;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -72,6 +81,8 @@ class AdminController extends AbstractController
      */
     public function productsEdit(Request $request, Products $product, ImagesRepository $imagesRepository): Response
     {
+        
+
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
 
@@ -84,6 +95,7 @@ class AdminController extends AbstractController
         return $this->render('admin/products/edit.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
+
         ]);
     }
 
@@ -234,4 +246,84 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('type_index');
     }
+    
+    /**
+     * @Route("/aboutme/{id}/edit", name="aboutMe_edit", methods={"GET","POST"})
+     */
+    public function AboutMeEdit(Request $request, AboutMe $aboutMe, ImagesRepository $imagesRepository): Response
+    {
+        $aboutMe->setImages($imagesRepository->findOneBy(['id' => $aboutMe->getImages()]));
+        $form = $this->createForm(AboutMeType::class, $aboutMe);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_index');
+        }
+
+        return $this->render('admin/about_me/edit.html.twig', [
+            'about_me' => $aboutMe,
+            'form' => $form->createView(),
+        ]);
+    }
+    
+    /**
+     * @Route("/frontmessage/{id}/edit", name="front_message_edit", methods={"GET","POST"})
+     */
+    public function FrontMessageEdit(Request $request, FrontMessage $frontMessage): Response
+    {
+        $form = $this->createForm(FrontMessageType::class, $frontMessage);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_index');
+        }
+
+        return $this->render('admin/front_message/edit.html.twig', [
+            'front_message' => $frontMessage,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/commande/encours", name="commande_en_cours", methods={"GET"})
+     */
+    public function CommandeEnCours(CommandeRepository $commandeRepository){
+
+        return $this->render('admin/commande/enCours.html.twig', [
+            
+            'commandes' => $commandeRepository->findBy(['send' => false]),
+            
+        ]);
+    }
+    /**
+     * @Route("/commande/sended", name="commande_sended", methods={"GET",})
+     */
+    public function CommandeSend(CommandeRepository $commandeRepository){
+
+        return $this->render('admin/commande/enCours.html.twig', [
+            
+            'commandes' => $commandeRepository->findBy(['send' => true]),
+            
+        ]);
+    }
+    /**
+     * @Route("/commande/encours/{id}", name="commande_update", methods={"GET","POST"})
+     */
+    public function updateCommande(Commande $commande){
+
+        $commande->setSend(true);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($commande);
+        $entityManager->flush();
+        
+        
+        return $this->redirectToRoute('commande_en_cours');
+    }
+
 }
+
+    

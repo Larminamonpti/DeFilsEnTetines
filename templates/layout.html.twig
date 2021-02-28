@@ -1,30 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <div class="frontmain container-fluid px-0">
+    <div class="frontmain">
         <header>
-            <div class="d-flex justify-content-between bg-bleu" id="header-top">
-                <div class="col-6 col-lg-2 col-xl-1 align-self-center" id="logo"><a href="{{ path('front_index') }}"><img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="logo de fils en tétines"></a></div>
-                <div class="col-6  d-flex justify-content-center text-white h1 align-self-center px-0 not-phone">DeFilsEnTétines</div>
-                <div class="col-lg-2 col-xl-1 align-self-center not-phone">
-                    <a class="nav-link dropdown-toggle align-self-center" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img
-                                class="img-fluid " src="{{ asset('images/compte.png') }}" alt="logo connexion"></a>
-                    <ul class="dropdown-menu">
-        
-                        {% if not app.user %}
-                            <li><a class="dropdown-item" href="{{ path('user_new') }}">Inscription</a></li>
-                            <li><a class="dropdown-item" href="{{ path("app_login")}}">Connexion</a></li>
-                        {% else %}
-                            <li><a class="dropdown-item" href="{{ path('user_edit', {"id": app.user.id  }) }}">Gérer mon compte</a></li>
-                            <li><a class="dropdown-item" href="{{ path("app_logout")}}">Déconnexion</a></li>
-                        {% endif %}
-                            <li><a class="dropdown-item" href="{{ path('panier_index') }}">Mon panier</a></li>
-                    </ul>
-                </div>
+            <div class="d-flex justify-content-center bg-bleu" id="header-top">
+                <div class="align-self-center" id="logo"><a href="{{ path('front_index') }}"><img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="logo de fils en tétines"></a></div>              
             </div>
             </header>
         {% block menu %}{{ render(url('front_menu')) }}{% endblock %}
         {% block menu2 %}{% endblock %}
-            <div class="container-fluid block-site px-0">
+            <div class="block-site">
                 {% block main %}{% endblock %}
             </div>
             {{ render(path('front_footer')) }}

@@ -63,14 +63,20 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\OneToMany(targetEntity=Adress::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Adress::class, mappedBy="user", cascade={"persist"})
      */
     private $adress;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="user")
+     */
+    private $commandes;
 
 
     public function __construct()
     {
         $this->adress = new ArrayCollection();
+        $this->commandes = new ArrayCollection();
     }
 
     public function __toString()
@@ -204,6 +210,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($adress->getUser() === $this) {
                 $adress->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+    
+
+    /**
+     * @return Collection|Commande[]
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): self
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes[] = $commande;
+            $commande->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): self
+    {
+        if ($this->commandes->removeElement($commande)) {
+            // set the owning side to null (unless already changed)
+            if ($commande->getUser() === $this) {
+                $commande->setUser(null);
             }
         }
 

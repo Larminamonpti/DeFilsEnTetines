@@ -28,6 +28,7 @@
                         </li>
                         <hr class="on-phone">
                     {% endif %}
+                    
                     <li class="nav-item dropdown on-phone">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">MON COMPTE</a>
                         <ul class="dropdown-menu">
@@ -43,6 +44,25 @@
                         </ul>
                         
                 </ul>
+                <div class="float-end nav-item dropdown align-self-center not-phone" id="user">
+                    
+                    <a class="nav-link align-self-center"  href="{{ path('panier_index') }}" ><i class="fas fa-shopping-cart"></i></a>
+                    
+                    <a class="nav-link dropdown-toggle align-self-center" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fas fa-user"></i></a>
+                    <ul class="dropdown-menu">
+        
+                        {% if not app.user %}
+                            <li><a class="dropdown-item" href="{{ path('user_new') }}">Inscription</a></li>
+                            <li><a class="dropdown-item" href="{{ path("app_login")}}">Connexion</a></li>
+                        {% else %}
+                            <li><a class="dropdown-item" href="{{ path('user_edit', {"id": app.user.id  }) }}">Gérer mon compte</a></li>
+                            <li><a class="dropdown-item" href="{{ path("app_logout")}}">Déconnexion</a></li>
+                        {% endif %}
+                    </ul>
+                    
+
+
+                </div>
             </div>
         </div>
     </nav>

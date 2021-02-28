@@ -1,11 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block title %}New Adress{% endblock %}
 
-{% block body %}
-    <h1>Create new Adress</h1>
+{% block main %}
+    <div class="formulaire">
 
-    {{ include('adress/_form.html.twig') }}
-
-    <a href="{{ path('adress_index') }}">back to list</a>
+        <h1 class="text-center">Ajouter un adresse</h1>
+        
+        {{ include('adress/_form.html.twig', {'button_label': 'Ajouter'}) }}
+        
+    </div>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-bleu" href="{{ path('user_edit', {'id' : app.user.id}) }}">Retour</a>
+        </div>
 {% endblock %}

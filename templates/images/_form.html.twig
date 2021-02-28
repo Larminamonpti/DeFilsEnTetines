@@ -1,4 +1,11 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+
+    {{form_label(form.file)}}
+    {{ form_widget(form.file) }}
+    {% if form_errors(form.file) %}
+    <div class="alert alert-danger">
+        {{ form_errors(form.file) }}
+    </div>
+{% endif %}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

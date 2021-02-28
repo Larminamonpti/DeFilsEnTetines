@@ -1,0 +1,48 @@
+{% extends "admin.layout.html.twig" %}
+
+{% block title %}Commandes{% endblock %}
+
+
+    
+
+
+{% block main %}
+    <div class="formulaire">
+        {% for commande in commandes %}
+        <div class="border p-3 my-3">
+            <div>
+                <h4 class="text-center">Commande du {{commande.createdAt|date('d/m/Y')}}</h4>
+                <h4 class="text-center">{{commande.user.firstname}} {{commande.user.lastname}}</h4>
+            </div>
+            {% for product, quantity in commande.produits %}
+            <div class="w-75 m-auto">
+                <ul class="d-flex justify-content-between list-unstyled">
+                    <li>{{product}} : </li>
+                    <li>x {{quantity}}</li>
+                </ul>
+            </div>    
+            {% endfor %}
+            <hr>
+            <div class="w-75 m-auto">
+                <div class="d-flex justify-content-between">
+                    <p>Total : </p>
+                    <p>{{commande.total}} €</p>
+                </div>
+            </div>
+            <hr>
+            <div class="w-75 m-auto">
+                <div class="d-flex justify-content-between">
+                    <p>Adresse de livraison:</p>
+                    <p>{{commande.adress.name | capitalize}}</p> 
+                </div>
+            </div>
+            {% if commande.send == false %}
+            <a href="{{path('commande_update', {'id' : commande.id})}}" class="btn btn-rose">Commande envoyée</a>
+            {% endif %}
+            
+        </div>
+        
+    {% endfor %}
+</div>
+    
+{% endblock %}

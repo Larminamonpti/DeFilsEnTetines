@@ -1,5 +1,5 @@
 {{ form_start(form) }}
-<div class="w-75 float-end">
+
     {{ form_label(form.name) }}
     {{ form_widget(form.name) }}
     {% if form_errors(form.name) %}
@@ -7,8 +7,8 @@
             {{ form_errors(form.name) }}
         </div>
     {% endif %}
-</div>
-<div class="w-75 float-end">
+
+
     {{ form_label(form.street) }}
     {{ form_widget(form.street) }}
     {% if form_errors(form.street) %}
@@ -16,8 +16,7 @@
             {{ form_errors(form.street) }}
         </div>
     {% endif %}
-</div>
-<div class="w-75 float-end">
+
     {{ form_label(form.postal) }}
     {{ form_widget(form.postal) }}
     {% if form_errors(form.postal) %}
@@ -25,8 +24,8 @@
             {{ form_errors(form.postal) }}
         </div>
     {% endif %}
-</div>
-<div class="w-75 float-end">
+
+
     {{ form_label(form.city) }}
     {{ form_widget(form.city) }}
     {% if form_errors(form.city) %}
@@ -34,8 +33,8 @@
             {{ form_errors(form.city) }}
         </div>
     {% endif %}
-</div>
-<div class="w-75 float-end">
+
+
     {{ form_label(form.country) }}
     {{ form_widget(form.country) }}
     {% if form_errors(form.country) %}
@@ -43,6 +42,8 @@
             {{ form_errors(form.country) }}
         </div>
     {% endif %}
+<div class="d-flex justify-content-center mt-3">
+
+    <button class="btn btn-bleu w-25">{{ button_label|default('Save') }}</button>
 </div>
-    <button class="btn btn-bleu">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

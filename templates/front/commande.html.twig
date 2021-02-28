@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Commande{% endblock %}
+
+{% block main %}
+
+
+
+
+
+{{ form_start(form) }}
+<h1 class="text-center">Résumé commande</h1>
+<div class="formulaire">
+    <div class="d-flex justify-content-center">
+        <div class="border p-3">
+            <div class="d-flex justify-content-between">
+                <p>
+                    Articles : 
+                </p>
+                <p>
+                    {{total}} €
+                </p>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p>
+                    Frais de port : 
+                </p>
+                <p>
+                    0 €
+                </p>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div>
+                    Total :
+                </div>
+                <div>
+                    {{total}} €
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="border p-3">
+            <div class="d-flex flex-column">
+                <p>Choissisez votre adresse de livraison :</p>
+                <div>
+                    {{ form_widget(form.adress, {'attr': {'class': 'form-select'}}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center">
+    <button class="btn btn-bleu">{{ button_label|default('Commander') }}</button>
+</div>
+{{ form_end(form) }}
+  
+{% endblock %}

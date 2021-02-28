@@ -17,11 +17,17 @@ class ImagesType extends AbstractType
     {
         $builder
             ->add('file' , VichImageType::class, [
-                'required' => true,
+                'label' => 'Image',
+                'required' => false,
                 'allow_delete' => false,
+                'download_uri' => false,
+            
+                'imagine_pattern' => 'about_me',
                 'attr' => [
-                    'class' => 'img-fluid'
+                    'class' => 'img-fluid',
+                    'onchange' => 'previewFile()'
                 ]
+            
 
             ])
 

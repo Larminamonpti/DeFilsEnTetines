@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Adress;
+use App\Entity\User;
 use App\Form\AdressType;
 use App\Repository\AdressRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,18 +35,21 @@ class AdressController extends AbstractController
         $adress->setUser($this->getUser());
         $form = $this->createForm(AdressType::class, $adress);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            $form->getConfig()->getData()->setName(ucfirst($form->getConfig()->getData()->getName()));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($adress);
             $entityManager->flush();
 
-            return $this->redirectToRoute('adress_index');
+
+            return $this->redirectToRoute('user_edit', ['id' => $this->getUser()->getId()]);
         }
 
         return $this->render('adress/new.html.twig', [
             'adress' => $adress,
             'form' => $form->createView(),
+
         ]);
     }
 
@@ -64,18 +68,20 @@ class AdressController extends AbstractController
      */
     public function edit(Request $request, Adress $adress): Response
     {
+        
         $form = $this->createForm(AdressType::class, $adress);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('adress_index');
+            return $this->redirectToRoute('user_edit', ['id' => $this->getUser()->getId()]);
         }
 
         return $this->render('adress/edit.html.twig', [
             'adress' => $adress,
             'form' => $form->createView(),
+            
         ]);
     }
 
@@ -90,6 +96,6 @@ class AdressController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('adress_index');
+        return $this->redirectToRoute('user_edit', ['id' => $this->getUser()->getId()]);
     }
 }

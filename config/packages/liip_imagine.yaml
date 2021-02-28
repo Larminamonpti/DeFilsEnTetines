@@ -10,7 +10,7 @@ liip_imagine:
         default:
 
             # use the default web path
-            web_path: ~
+            web_path: ~ #"%kernel.project_dir%/public"
 
     # your filter sets are defined here
     filter_sets:
@@ -27,6 +27,30 @@ liip_imagine:
             filters:
 
 
-                thumbnail: { size: [125, 190], mode: outbound }
+                thumbnail: { size: [140, 140], mode: outbound }
 
-                background: { size: [200, 200]  position: center, color: '#000000' }
+        
+        product:
+
+
+            quality: 100
+
+
+            filters:
+
+
+                thumbnail: { size: [500, 500], mode: outbound }
+
+        carte:
+
+
+            quality: 100
+
+
+            filters:
+
+
+                thumbnail: { size: [350, 350], mode: outbound }
+
+
+

@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+<div>
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title) }}
+        {% if form_errors(form.title) %}
+            <div class="alert alert-danger">
+                {{ form_errors(form.title) }}
+            </div>
+        {% endif %}
+    {{ form_label(form.content) }}
+    {{ form_widget(form.content) }}
+        {% if form_errors(form.content) %}
+            <div class="alert alert-danger">
+                {{ form_errors(form.content) }}
+            </div>
+        {% endif %}
+
+    {{ form_widget(form.images) }}
+        {% if form_errors(form.images) %}
+            <div class="alert alert-danger">
+                {{ form_errors(form.images) }}
+            </div>
+        {% endif %}
+</div>
+<div class="d-flex justify-content-center mt-4">
+    <button class="btn btn-bleu">{{ button_label|default('Save') }}</button>
+</div>
+{{ form_end(form) }}

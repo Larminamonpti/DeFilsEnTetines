@@ -54,7 +54,8 @@ class Products
     private $type;
 
     /**
-     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="products", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="products", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $images;
 

@@ -3,10 +3,14 @@
 {% block title %}New User{% endblock %}
 
 {% block main %}
+<div class="formulaire">
     <h1 class="text-center">Inscription</h1>
-    <div class="w-50 m-auto my-5 bg-white p-5 border rounded shadow">
         {{ include('user/_form.html.twig') }}
 
     </div>
 
 {% endblock %}
+{% block javascripts %}
+    <script src="{{asset('js/embed.js')}}"></script>
+{% endblock %}
+

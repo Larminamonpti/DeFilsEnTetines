@@ -41,7 +41,7 @@ class Images
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="images")
+     * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="images", cascade={"remove"})
      */
     private $products;
 
@@ -70,6 +70,7 @@ class Images
     {
         return $this->file;
     }
+
 
     public function setFile(?File $file): self
     {

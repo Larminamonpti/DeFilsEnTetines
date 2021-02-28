@@ -72,6 +72,11 @@ class Adress
      */
     private $user;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="adress")
+     */
+    private $commandes;
+
 
 
 
@@ -80,6 +85,11 @@ class Adress
     {
         $this->users = new ArrayCollection();
         $this->deliveryUsers = new ArrayCollection();
+        $this->commandes = new ArrayCollection();
+    }
+    public function __toString()
+    {
+        return $this->getName();
     }
 
     public function getId(): ?int
@@ -155,6 +165,36 @@ class Adress
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Commande[]
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commande $commande): self
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes[] = $commande;
+            $commande->setAdress($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): self
+    {
+        if ($this->commandes->removeElement($commande)) {
+            // set the owning side to null (unless already changed)
+            if ($commande->getAdress() === $this) {
+                $commande->setAdress(null);
+            }
+        }
 
         return $this;
     }
